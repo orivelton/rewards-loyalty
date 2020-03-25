@@ -1,7 +1,7 @@
 const USER = {
     name: 'Orivelton',
     rewards: {
-      amount: 8, 
+      amount: 10, 
       goal: 10
     }
 }
