@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Platform, StyleSheet, Text, View, Image } from 'react-native';
+import { Platform, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
 import { MonoText } from '../components/StyledText';
@@ -19,7 +19,18 @@ export default function HomeScreen() {
     )
   }
 
-  const renderQrCode = () => <View><Text>Você ganhou um premio!! </Text></View>
+  const renderQrCode = () => {
+    return(
+      <View>
+        <Text>Você ganhou um premio!! </Text>
+        <View>
+          <TouchableOpacity style={styles.button} onPress={() => {}}>
+            <Text> Levantar </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    )
+  }
 
   return (
     <View style={styles.container}>
@@ -59,6 +70,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.05)',
     borderRadius: 3,
     paddingHorizontal: 4,
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: 'green',
+    padding: 10,
+    marginVertical: 20
   },
   tabBarInfoContainer: {
     position: 'absolute',
