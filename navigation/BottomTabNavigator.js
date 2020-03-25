@@ -40,8 +40,8 @@ function getHeaderTitle(route) {
 
   switch (routeName) {
     case 'Home':
-      return 'How to get started';
+      return 'Meus pontos';
     case 'Links':
-      return 'Links to learn more';
+      return 'Meus produtos';
   }
 }

@@ -4,6 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
 
 import { MonoText } from '../components/StyledText';
+import { Count } from '../components/count/Count';
 
 export default function HomeScreen() {
   return (
@@ -42,10 +43,10 @@ export default function HomeScreen() {
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
-        <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
+        <Text style={styles.tabBarInfoText}>Meu progresso</Text>
 
         <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-          <MonoText style={styles.codeHighlightText}>navigation/BottomTabNavigator.js</MonoText>
+          <Count />
         </View>
       </View>
     </View>
