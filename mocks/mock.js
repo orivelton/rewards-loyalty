@@ -2,7 +2,8 @@ const USER = {
     name: 'Orivelton',
     email: 'orivelton@gmail.com',
     rewards: {
-      goal: 10  
+      amount: 3, 
+      goal: 10
     }
 }
 

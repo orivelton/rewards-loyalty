@@ -1,23 +1,35 @@
 import * as React from 'react';
-import { Platform, StyleSheet, Text, TouchableOpacity, View, CheckBox } from 'react-native';
+import { Platform, StyleSheet, Text, View, Image } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
 
 import { MonoText } from '../components/StyledText';
 import { Count } from '../components/Count';
 import { Star } from '../components/Star';
+import { USER } from '../mocks/mock';
 
 export default function HomeScreen() {
+  const { rewards: { amount, goal } } = USER;
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-        <Star />
+        <View style={{flex: 1, flexDirection: 'row'}}>
+          
+          {
+            [...Array(amount)].map(item => <Star key={item} type="black"/>)
+          }
+
+          {
+            [...Array(goal - amount)].map(item => <Star key={item} />)
+          }
+        </View>
+        
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>Meu progresso</Text>
         <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-          <Count currentRewards={5} />
+          <Count rewardsAmount={amount} rewardsGoal={goal} />
         </View>
       </View>
     </View>

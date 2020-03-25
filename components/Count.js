@@ -1,13 +1,11 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
-import { USER } from '../mocks/mock';
 import Icons from '../constants/Icons';
 
-export const Count = ({ currentRewards}) => {
-    const { rewards } = USER;
+export const Count = ({ rewardsAmount, rewardsGoal}) => {
     return (
         <View>
-            <Text> {currentRewards} / {rewards.goal} </Text>
+            <Text> {rewardsAmount} / {rewardsGoal} </Text>
         </View>
     )
 };
