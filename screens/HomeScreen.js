@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { Platform, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-
-import { MonoText } from '../components/StyledText';
 import { Count } from '../components/Count';
 import { Star } from '../components/Star';
 import { USER } from '../mocks/mock';

@@ -41,8 +41,10 @@ function getHeaderTitle(route) {
   const { name } = USER;
   switch (routeName) {
     case 'Home':
-      return `Olá ${name} ☀`;
+      return `Olá ${name}`;
     case 'Links':
       return 'Meus produtos';
+    case 'Login':
+      return 'Login'
   }
 }
