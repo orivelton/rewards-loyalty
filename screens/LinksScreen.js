@@ -6,13 +6,12 @@ import { UserContext } from '../data/userContext';
 
 export default function LinksScreen() {
   const dataUser = useContext(UserContext);
-  const { rewards: { amount } } = dataUser;
+  const { rewards: { amount }} = dataUser;
   const [star, setStar] = useState();
   
   const menagerStar = async() => {
     const newAmount = Number(amount) + Number(star);
     dataUser.rewards.amount = newAmount;
-    console.log('>>>', dataUser);
     updateStars(dataUser);
   }
 

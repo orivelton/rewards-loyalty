@@ -25,9 +25,8 @@ export default function App(props) {
   React.useEffect(() => {
     async function loadResourcesAndDataAsync() {
       const data = await getUser();
-      console.log('data AppJS', data);
       await setData(data);
-      
+
       try {
         SplashScreen.preventAutoHide();
 
