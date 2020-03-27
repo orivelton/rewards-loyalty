@@ -1,12 +1,25 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Count } from '../components/Count';
 import { Star } from '../components/Star';
-import { USER } from '../mocks/mock';
+import { getUser } from '../data/firebase';
 
 export default function HomeScreen() {
-  const { rewards: { amount, goal } } = USER;
+
+  const [user, setUser] = useState();
+  
+  useEffect(() => {
+    dataUser();
+  }, []);
+  
+  const dataUser = async () => {
+    const dataUser = await getUser();
+    setUser(dataUser);
+  }
+  
+
+  const { rewards: { amount, goal } } = user;
 
   const renderStars = () => {
     return (
