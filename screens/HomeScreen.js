@@ -4,6 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { Count } from '../components/Count';
 import { Star } from '../components/Star';
 import { getUser } from '../data/firebase';
+import { USER } from '../mocks/mock';
 
 export default function HomeScreen() {
 
@@ -17,9 +18,19 @@ export default function HomeScreen() {
     const dataUser = await getUser();
     setUser(dataUser);
   }
+
+
+  console.log('>>>>>', user);
   
 
-  const { rewards: { amount, goal } } = user;
+  const { rewards: { amount, goal } } =  user;
+  // {
+  //   name: 'Orivelton',
+  //   rewards: {
+  //     amount: 10, 
+  //     goal: 10
+  //   }
+  // };
 
   const renderStars = () => {
     return (

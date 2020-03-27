@@ -25,6 +25,7 @@ export default function LoginScreen() {
         <View style={styles.inputView} >
             <TextInput  
             style={styles.inputText}
+            keyboardType='numeric'
             placeholder="Email..." 
             placeholderTextColor="#003f5c"
             onChangeText={text => setEmail(text)}/>

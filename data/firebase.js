@@ -14,12 +14,9 @@ const getUser = async () => {
     return data[ID];
 }
 
-const updateStars = () => {
-    firebase.database().ref(`users/${ID}`).set(
-        {
-        isFistTime: true
-        }
-    ).then(ok => { console.log('Error', ok)}).catch(error => { console.log('Error', error)});
+const updateStars = (data) => {
+    firebase.database().ref(`users/${ID}`).set(data)
+    .then(ok => { console.log('OK', ok)}).catch(error => { console.log('Error', error)});
 };
 
 export { getUser, updateStars };

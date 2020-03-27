@@ -1,46 +1,38 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as WebBrowser from 'expo-web-browser';
-import { RectButton, ScrollView } from 'react-native-gesture-handler';
+import { RectButton, ScrollView, TouchableOpacity, TextInput } from 'react-native-gesture-handler';
+import { updateStars, getUser } from '../data/firebase';
 
 export default function LinksScreen() {
+  const [star, setStar] = useState(0);
+
+
+  const menagerStar = async() => {
+    const dataUser = await getUser();
+    const { rewards: { amount } } = dataUser
+    const newAmount = Number(amount) + Number(star);
+    dataUser.rewards.amount = newAmount;
+
+    updateStars(dataUser);
+  }
+
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-      <OptionButton
-        icon="md-school"
-        label="Read the Expo documentation"
-        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
-      />
-
-      <OptionButton
-        icon="md-compass"
-        label="Read the React Navigation documentation"
-        onPress={() => WebBrowser.openBrowserAsync('https://reactnavigation.org')}
-      />
-
-      <OptionButton
-        icon="ios-chatboxes"
-        label="Ask a question on the forums"
-        onPress={() => WebBrowser.openBrowserAsync('https://forums.expo.io')}
-        isLastOption
-      />
-    </ScrollView>
-  );
-}
-
-function OptionButton({ icon, label, onPress, isLastOption }) {
-  return (
-    <RectButton style={[styles.option, isLastOption && styles.lastOption]} onPress={onPress}>
-      <View style={{ flexDirection: 'row' }}>
-        <View style={styles.optionIconContainer}>
-          <Ionicons name={icon} size={22} color="rgba(0,0,0,0.35)" />
-        </View>
-        <View style={styles.optionTextContainer}>
-          <Text style={styles.optionText}>{label}</Text>
-        </View>
+      <View style={styles.inputView} >
+        <TextInput
+          style={styles.inputText}
+          keyboardType = 'numeric'
+          placeholder="Adiconar pontos"
+          onChangeText={text => setStar(text)}
+        />
       </View>
-    </RectButton>
+
+      <TouchableOpacity style={styles.loginBtn} onPress={() => {menagerStar()}}>
+          <Text style={styles.loginText}>Adicionar estrela</Text>
+      </TouchableOpacity>
+    </ScrollView>
   );
 }
 
@@ -71,4 +63,27 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     marginTop: 1,
   },
+  loginBtn:{
+    width:"80%",
+    backgroundColor:"#fb5b5a",
+    borderRadius:25,
+    height:50,
+    alignItems:"center",
+    justifyContent:"center",
+    marginTop:40,
+    marginBottom:10
+  },
+  inputText:{
+    height:50,
+    color:"white"
+  },
+  inputView:{
+    width:"80%",
+    backgroundColor:"#696969",
+    borderRadius:25,
+    height:50,
+    marginBottom:20,
+    justifyContent:"center",
+    padding:20
+  }
 });
