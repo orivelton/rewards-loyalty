@@ -17,7 +17,7 @@ export default function HomeScreen() {
     )
   }
 
-  const renderQrCode = () => {
+  const renderReward = () => {
     return(
       <View>
         <Text>Você ganhou um premio!! </Text>
@@ -33,7 +33,7 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-        {amount === goal ? renderQrCode() : renderStars()} 
+        {amount === goal ? renderReward() : renderStars()} 
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
