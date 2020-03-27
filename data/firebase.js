@@ -9,12 +9,13 @@ const firebaseInit = () => {
 const getUser = async () => {
     firebaseInit();
     let data = null;
-    await firebase.database().ref('users').once('value', (resp) => data = resp.toJSON());
-    
+    await firebase.database().ref('users').once('value', (resp) => data = resp.toJSON()).catch(() => console.log('Error'));
     return data[ID];
 }
 
 const updateStars = (data) => {
+    console.log(data);
+    
     firebase.database().ref(`users/${ID}`).set(data)
     .then(ok => { console.log('OK', ok)}).catch(error => { console.log('Error', error)});
 };

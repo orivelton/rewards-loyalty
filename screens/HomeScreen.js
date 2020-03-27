@@ -1,36 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext, useMemo } from 'react';
 import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Count } from '../components/Count';
 import { Star } from '../components/Star';
-import { getUser } from '../data/firebase';
-import { USER } from '../mocks/mock';
+import { UserContext } from '../data/userContext';
 
 export default function HomeScreen() {
-
-  const [user, setUser] = useState();
-  
-  useEffect(() => {
-    dataUser();
-  }, []);
-  
-  const dataUser = async () => {
-    const dataUser = await getUser();
-    setUser(dataUser);
-  }
-
-
-  console.log('>>>>>', user);
-  
-
-  const { rewards: { amount, goal } } =  user;
-  // {
-  //   name: 'Orivelton',
-  //   rewards: {
-  //     amount: 10, 
-  //     goal: 10
-  //   }
-  // };
+  const { rewards: { amount, goal } } = useContext(UserContext);
 
   const renderStars = () => {
     return (
