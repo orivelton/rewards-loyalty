@@ -22,11 +22,12 @@ export default function LinksScreen() {
           style={styles.inputText}
           keyboardType = 'numeric'
           placeholder="Adiconar pontos"
+          placeholderTextColor="#402E1A"
           onChangeText={text => setStar(text)}
         />
       </View>
 
-      <TouchableOpacity style={styles.loginBtn} onPress={() => {menagerStar()}}>
+      <TouchableOpacity style={styles.btn} onPress={() => {menagerStar()}}>
           <Text style={styles.loginText}>Adicionar estrela</Text>
       </TouchableOpacity>
     </ScrollView>
@@ -40,47 +41,36 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingTop: 15,
+    paddingHorizontal: 20
   },
   optionIconContainer: {
     marginRight: 12,
-  },
-  option: {
-    backgroundColor: '#fdfdfd',
-    paddingHorizontal: 15,
-    paddingVertical: 15,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderBottomWidth: 0,
-    borderColor: '#ededed',
-  },
-  lastOption: {
-    borderBottomWidth: StyleSheet.hairlineWidth,
   },
   optionText: {
     fontSize: 15,
     alignSelf: 'flex-start',
     marginTop: 1,
   },
-  loginBtn:{
-    width:"80%",
-    backgroundColor:"#fb5b5a",
-    borderRadius:25,
-    height:50,
-    alignItems:"center",
-    justifyContent:"center",
-    marginTop:40,
-    marginBottom:10
+  btn:{
+    width: "100%",
+    backgroundColor: "#8CC03A",
+    borderRadius: 4,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 20,
+    marginBottom: 10
   },
   inputText:{
-    height:50,
-    color:"white"
+    height: 50,
+    color: "#402E1A",
   },
   inputView:{
-    width:"80%",
-    backgroundColor:"#696969",
-    borderRadius:25,
-    height:50,
-    marginBottom:20,
-    justifyContent:"center",
-    padding:20
+    width: "100%",
+    backgroundColor: "#F4F2F5",
+    borderRadius: 4,
+    height: 50,
+    justifyContent: "center",
+    padding: 20
   }
 });
