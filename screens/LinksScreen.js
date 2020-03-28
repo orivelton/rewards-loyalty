@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { ScrollView, TouchableOpacity, TextInput } from 'react-native-gesture-handler';
-import { updateStars, getUser } from '../data/firebase';
+import { updateStars } from '../data/firebase';
 import { UserContext } from '../data/userContext';
 
 export default function LinksScreen() {

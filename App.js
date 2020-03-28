@@ -6,7 +6,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import useLinking from './navigation/useLinking';
-import LoginScreen from './screens/LoginScreen';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import { UserContext } from './data/userContext';
 import { getUser } from './data/firebase';
@@ -69,7 +68,6 @@ export default function App(props) {
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   container: {
